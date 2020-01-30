@@ -59,3 +59,13 @@ inquirer
       if (err) console.log("error", err);
     });
   });
+promptUser()
+  .then(answers => {
+    const html = generateHTML(answers);
+
+    return writeFileAsync("index.html", html);
+  })
+  .then(() => {
+    console.log("Successfully wrote to index.html");
+  })
+  .catch(console.error);
