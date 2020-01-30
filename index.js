@@ -11,6 +11,26 @@ inquirer
     {
       message: "Where are you from?",
       name: "location"
+    },
+    {
+      message: "Enter your GitHub bio:",
+      name: "bio"
+    },
+    {
+      message: "Number of public repositories:",
+      name: "repositories"
+    },
+    {
+      message: "Number of followers:",
+      name: "followers"
+    },
+    {
+      message: "Number of GitHub stars:",
+      name: "stars"
+    },
+    {
+      message: "Number of users following:",
+      name: "users"
     }
   ])
   .then(function(data) {
@@ -39,4 +59,3 @@ inquirer
       if (err) console.log("error", err);
     });
   });
-//name, location, bio, LinkedIn URL and GitHub URL.
