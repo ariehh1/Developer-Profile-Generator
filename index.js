@@ -1,41 +1,24 @@
 "use strict";
+
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-inquirer
-  .prompt([
-    {
-      message: "Enter your GitHub username:",
-      name: "username"
-    },
-    {
-      message: "Where are you from?",
-      name: "location"
-    },
-    {
-      message: "Enter your GitHub bio:",
-      name: "bio"
-    },
-    {
-      message: "Number of public repositories:",
-      name: "repositories"
-    },
-    {
-      message: "Number of followers:",
-      name: "followers"
-    },
-    {
-      message: "Number of GitHub stars:",
-      name: "stars"
-    },
-    {
-      message: "Number of users following:",
-      name: "users"
-    }
-  ])
-  .then(function(data) {
-    console.log(data);
-    const html = `<!DOCTYPE html>
+
+const data = {};
+let userInput = [
+  {
+    message: "Enter your GitHub username:",
+    name: "username"
+  },
+  {
+    message: "What is your favorite color?",
+    name: "color",
+    type: "list",
+    choices: ["Red", "Green", "Blue", "Yellow"]
+  }
+].then(function(data) {
+  console.log(data);
+  const html = `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -54,11 +37,11 @@ inquirer
       <h1>${data.username}</h1><h2>${data.location}</h2></body>
     </html>
     `;
-    console.log(html);
-    fs.writeFile("index.html", html, function(err) {
-      if (err) console.log("error", err);
-    });
+  console.log(html);
+  fs.writeFile("index.html", html, function(err) {
+    if (err) console.log("error", err);
   });
+});
 promptUser()
   .then(answers => {
     const html = generateHTML(answers);
