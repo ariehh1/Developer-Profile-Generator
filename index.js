@@ -3,8 +3,10 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
+const util = require("util");
+const writeFileAsync = util.promisify(fs.writeFile);
 
-const html = data => {
+function html(data, color) {
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -14,19 +16,19 @@ const html = data => {
         <title>Document</title>
         <style>
             h1 {
-                background-color: green;
+                background-color: ${color};
                 color: blue;
                 font-size: 5rem;
             }
         </style>
       </head>
       <body>
-      <h1>${data.username}</h1><h2>${data.location}</h2></body>
+      <h1>${data.name}</h1><h2>${data.location}</h2></body>
     </html>
     `;
-};
-const data = {};
-let userInput = [
+}
+
+const userInput = [
   {
     message: "Enter your GitHub username:",
     name: "username"
@@ -38,10 +40,18 @@ let userInput = [
     choices: ["Red", "Green", "Blue", "Yellow"]
   }
 ];
-inquirer.prompt(userInput).then(function(data) {
-  console.log(data);
-  //   console.log(html);
-  //   fs.writeFile("index.html", html(data), function(err) {
-  //     if (err) console.log("error", err);
-  //   });
-});
+
+initial();
+async function initial() {
+  try {
+    const { username, color } = await inquirer.prompt(userInput);
+    const queryUrl = `https://api.github.com/users/${username}`;
+    const { data } = await axios.get(queryUrl);
+
+    await writeFileAsync("index.html", html(data, color), "utf8");
+
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
