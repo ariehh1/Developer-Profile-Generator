@@ -4,21 +4,8 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 
-const data = {};
-let userInput = [
-  {
-    message: "Enter your GitHub username:",
-    name: "username"
-  },
-  {
-    message: "What is your favorite color?",
-    name: "color",
-    type: "list",
-    choices: ["Red", "Green", "Blue", "Yellow"]
-  }
-].then(function(data) {
-  console.log(data);
-  const html = `<!DOCTYPE html>
+const html = data => {
+  return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -37,18 +24,24 @@ let userInput = [
       <h1>${data.username}</h1><h2>${data.location}</h2></body>
     </html>
     `;
-  console.log(html);
-  fs.writeFile("index.html", html, function(err) {
-    if (err) console.log("error", err);
-  });
+};
+const data = {};
+let userInput = [
+  {
+    message: "Enter your GitHub username:",
+    name: "username"
+  },
+  {
+    message: "What is your favorite color?",
+    name: "color",
+    type: "list",
+    choices: ["Red", "Green", "Blue", "Yellow"]
+  }
+];
+inquirer.prompt(userInput).then(function(data) {
+  console.log(data);
+  //   console.log(html);
+  //   fs.writeFile("index.html", html(data), function(err) {
+  //     if (err) console.log("error", err);
+  //   });
 });
-promptUser()
-  .then(answers => {
-    const html = generateHTML(answers);
-
-    return writeFileAsync("index.html", html);
-  })
-  .then(() => {
-    console.log("Successfully wrote to index.html");
-  })
-  .catch(console.error);
