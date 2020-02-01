@@ -22,10 +22,12 @@ function html(data, color) {
         body {
             -webkit-print-color-adjust: exact;
           }
-            h1 {
+            h1, h2, h3, h4, h5, h6 {
                 background-color: ${color};
                 color: white;
                 font-size: 5rem;
+                font-family: 'BioRhyme', serif;
+                margin: 0;
             }
             @page {
               margin: 0;
@@ -197,14 +199,14 @@ async function initial() {
     const { username, color } = await inquirer.prompt(userInput);
     const queryUrl = `https://api.github.com/users/${username}`;
     const queryUrl1 = `${queryUrl}/starred`;
-    const { data: userGithubInfor } = await axios.get(queryUrl);
-    const { data: starredInfor } = await axios.get(queryUrl1);
+    const { data: userGithub } = await axios.get(queryUrl);
+    const { data: starred } = await axios.get(queryUrl1);
 
-    await writeFileAsync("index.html", html(userGithubInfor, color), "utf8");
+    await writeFileAsync("index.html", html(userGithub, color), "utf8");
 
     await printPDF();
 
-    console.log(userGithubInfor, starredInfor.length);
+    console.log(userGithub, starred.length);
   } catch (err) {
     console.error(err);
   }
