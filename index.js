@@ -138,7 +138,7 @@ function html(data, color) {
       <body>
       <div class="wrapper">
       <div class='photo-header'>
-        <img src="${data.portPic}"><br>
+        <img src="${data.avatar_url}"><br>
         <h1>Hi!</h1>
         <h2>My name is ${data.name}</h2>
         <h3>Currently @ ${data.company}</h3>
