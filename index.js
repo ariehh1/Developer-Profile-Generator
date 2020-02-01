@@ -156,23 +156,21 @@ function html(data, color) {
       <div class="row">
         <div class='col card'>
           <h2>Public Repositories</h1>
-          ${data.numOfRepo}
+          ${data.public_repos}
         </div>
-
         <div class="col card">
           <h2>Followers</h1>
           ${data.followers}
         </div>
       </div>
-
       <div class="row">
         <div class="card col">
           <h2>GitHub Stars</h2>
-          ${data.stars}
+          ${data.starred_url}
         </div>
         <div class="card col">
           <h2>Following</h2>
-          ${data.followers}
+          ${data.following}
         </div>
       </div>
 
@@ -190,7 +188,7 @@ const userInput = [
     message: "What is your favorite color?",
     name: "color",
     type: "list",
-    choices: ["Red", "Green", "Blue", "Yellow"]
+    choices: ["Red", "Green", "Blue", "Orange"]
   }
 ];
 
