@@ -8,7 +8,7 @@ const puppeteer = require("puppeteer");
 const path = require("path");
 const writeFileAsync = util.promisify(fs.writeFile);
 
-function html(data, color) {
+function html(data, starLength, color) {
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -115,7 +115,9 @@ function html(data, color) {
              margin-bottom: 20px;
            }
   
-      
+      data.avatar_url {
+        border-radius: 10px
+      }
            
            .col {
            flex: 1;
@@ -166,7 +168,7 @@ function html(data, color) {
       <div class="row">
         <div class="card col">
           <h2>GitHub Stars</h2>
-          ${data.starred_url}
+          ${starLength}
         </div>
         <div class="card col">
           <h2>Following</h2>
@@ -199,12 +201,17 @@ async function initial() {
     const queryUrl1 = `${queryUrl}/starred`;
     const { data: userGithub } = await axios.get(queryUrl);
     const { data: starred } = await axios.get(queryUrl1);
+    const starLength = starred.length;
 
-    await writeFileAsync("index.html", html(userGithub, color), "utf8");
+    await writeFileAsync(
+      "index.html",
+      html(userGithub, starLength, color),
+      "utf8"
+    );
 
     await printPDF();
 
-    console.log(userGithub, starred.length);
+    console.log(`Starred length is ${starred.length}`);
   } catch (err) {
     console.error(err);
   }
