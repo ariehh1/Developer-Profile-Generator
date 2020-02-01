@@ -41,9 +41,7 @@ function html(data, starLength, color) {
            padding: 0;
            margin: 0;
            }
-           html, body, .wrapper {
-           height: 100%;
-           }
+           
            body {
            background-color: white;
            -webkit-print-color-adjust: exact !important;
@@ -115,9 +113,14 @@ function html(data, starLength, color) {
              margin-bottom: 20px;
            }
   
-      data.avatar_url {
-        border-radius: 10px
-      }
+           img {
+            border-radius: 50%;
+           }
+          
+           .img-parent {
+             display: flex;
+             justify-content: center;
+           }
            
            .col {
            flex: 1;
@@ -140,7 +143,9 @@ function html(data, starLength, color) {
       <body>
       <div class="wrapper">
       <div class='photo-header'>
-        <img src="${data.avatar_url}"><br>
+        <div class= 'img-parent'>
+        <img src="${data.avatar_url}">
+        </div>
         <h1>Hi!</h1>
         <h2>My name is ${data.name}</h2>
         <h3>Currently @ ${data.company}</h3>
@@ -148,10 +153,8 @@ function html(data, starLength, color) {
           <a class="nav-link" href="https://www.google.com/maps/place/${
             data.location.split(" ")[0]
           }+${data.location.split(" ")[1]}">${data.location}</a>
-          <a class="nav-link" href="https://github.com/${
-            data.username
-          }">github</a>
-          <a class="nav-link" href="${data.blog}">blog</a>
+          <a class="nav-link" href="${data.html_url}">Github</a>
+          <a class="nav-link" href="${data.blog}">Blog</a>
         </div>
       </div>
 
@@ -200,6 +203,7 @@ async function initial() {
     const queryUrl = `https://api.github.com/users/${username}`;
     const queryUrl1 = `${queryUrl}/starred`;
     const { data: userGithub } = await axios.get(queryUrl);
+    console.log(userGithub);
     const { data: starred } = await axios.get(queryUrl1);
     const starLength = starred.length;
 
@@ -211,7 +215,7 @@ async function initial() {
 
     await printPDF();
 
-    console.log(`Starred length is ${starred.length}`);
+    // console.log(`Starred length is ${starred.length}`);
   } catch (err) {
     console.error(err);
   }
