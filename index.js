@@ -49,7 +49,7 @@ function html(data, starLength, color) {
            -webkit-print-color-adjust: exact !important;
            font-family: 'Cabin', sans-serif;
            }
-           
+
            main {
            background-color: #E9EDEE;
            height: auto;
@@ -160,7 +160,9 @@ function html(data, starLength, color) {
           <a class="nav-link" href="${data.blog}">Blog</a>
         </div>
       </div>
-
+      <br>
+      <br>
+      <br>
       <div class="row">
         <div class='col card'>
           <h2>Public Repositories</h1>
