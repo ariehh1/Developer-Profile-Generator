@@ -28,6 +28,8 @@ function html(data, starLength, color) {
                 font-size: 5rem;
                 font-family: 'BioRhyme', serif;
                 margin: 0;
+                text-align: center;
+                width: 98%;
             }
             @page {
               margin: 0;
@@ -47,59 +49,60 @@ function html(data, starLength, color) {
            -webkit-print-color-adjust: exact !important;
            font-family: 'Cabin', sans-serif;
            }
+           
            main {
            background-color: #E9EDEE;
            height: auto;
            padding-top: 30px;
            }
-           h1, h2, h3, h4, h5, h6 {
-           font-family: 'BioRhyme', serif;
-           margin: 0;
-           }
+          
            h1 {
            font-size: 3em;
            }
+
            h2 {
            font-size: 2.5em;
            }
+
            h3 {
            font-size: 2em;
            }
+
            h4 {
            font-size: 1.5em;
            }
+
            h5 {
            font-size: 1.3em;
            }
+
            h6 {
            font-size: 1.2em;
            }
        
-           .photo-header h1, .photo-header h2 {
-           width: 100%;
-           text-align: center;
-           }
-           .photo-header h1 {
-           margin-top: 10px;
-           }
            .links-nav {
-           width: 100%;
+           width: 98%;
            text-align: center;
            padding: 20px 0;
            font-size: 1.1em;
+           background-color: ${color};
+           color: white;
            }
+
            .nav-link {
            display: inline-block;
            margin: 5px 10px;
            }
+
            .workExp-date {
            font-style: italic;
            font-size: .7em;
            text-align: right;
            margin-top: 10px;
            }
+
            .container {
-             position: relative;
+           position: relative;
            padding: 50px;
            padding-left: 100px;
            padding-right: 100px;
@@ -147,7 +150,7 @@ function html(data, starLength, color) {
         <img src="${data.avatar_url}">
         </div>
         <h1>Hi!</h1>
-        <h2>My name is ${data.name}</h2>
+        <h2>My name is ${data.name}!</h2>
         <h3>Currently @ ${data.company}</h3>
         <div class="links-nav">
           <a class="nav-link" href="https://www.google.com/maps/place/${
@@ -203,7 +206,6 @@ async function initial() {
     const queryUrl = `https://api.github.com/users/${username}`;
     const queryUrl1 = `${queryUrl}/starred`;
     const { data: userGithub } = await axios.get(queryUrl);
-    console.log(userGithub);
     const { data: starred } = await axios.get(queryUrl1);
     const starLength = starred.length;
 
@@ -214,8 +216,6 @@ async function initial() {
     );
 
     await printPDF();
-
-    // console.log(`Starred length is ${starred.length}`);
   } catch (err) {
     console.error(err);
   }
