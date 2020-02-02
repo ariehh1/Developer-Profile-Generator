@@ -29,7 +29,7 @@ function html(data, starLength, color) {
                 font-family: 'BioRhyme', serif;
                 margin: 0;
                 text-align: center;
-                width: 98%;
+                width: 100%
             }
             @page {
               margin: 0;
@@ -75,7 +75,7 @@ function html(data, starLength, color) {
            }
        
            .links-nav {
-           width: 98%;
+           width: 100%;
            text-align: center;
            padding: 20px 0;
            font-size: 1.1em;
@@ -138,6 +138,8 @@ function html(data, starLength, color) {
         <div class= 'img-parent'>
         <img src="${data.avatar_url}">
         </div>
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
         <h1>Hi!</h1>
         <h2>My name is ${data.name}!</h2>
         <h3>Currently @ ${data.company}</h3>
