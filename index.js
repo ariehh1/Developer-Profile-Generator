@@ -142,11 +142,15 @@ function html(data, starLength, color) {
         <h2>My name is ${data.name}!</h2>
         <h3>Currently @ ${data.company}</h3>
         <div class="links-nav">
-          <a class="nav-link" href="https://www.google.com/maps/place/${
-            data.location.split(" ")[0]
-          }+${data.location.split(" ")[1]}">${data.location}</a>
-          <a class="nav-link" href="${data.html_url}">Github</a>
-          <a class="nav-link" href="${data.blog}">Blog</a>
+        <i class="fas fa-map-pin"></i><a class="nav-link" href="https://www.google.com/maps/place/${
+          data.location.split(" ")[0]
+        }+${data.location.split(" ")[1]}">${data.location}</a>
+          <i class="fab fa-github-square"></i><a class="nav-link" href="${
+            data.html_url
+          }">Github</a>
+          <i class="fas fa-address-card"></i><a class="nav-link" href="${
+            data.blog
+          }">Portfolio</a>
         </div>
       </div>
       </div>
