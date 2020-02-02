@@ -49,12 +49,6 @@ function html(data, starLength, color) {
            -webkit-print-color-adjust: exact !important;
            font-family: 'Cabin', sans-serif;
            }
-
-           main {
-           background-color: #E9EDEE;
-           height: auto;
-           padding-top: 30px;
-           }
           
            h1 {
            font-size: 3em;
@@ -94,13 +88,6 @@ function html(data, starLength, color) {
            margin: 5px 10px;
            }
 
-           .workExp-date {
-           font-style: italic;
-           font-size: .7em;
-           text-align: right;
-           margin-top: 10px;
-           }
-
            .container {
            position: relative;
            padding: 50px;
@@ -123,6 +110,8 @@ function html(data, starLength, color) {
            .img-parent {
              display: flex;
              justify-content: center;
+             margin-top: 30px;
+             border: 3px black;
            }
            
            .col {
@@ -159,6 +148,7 @@ function html(data, starLength, color) {
           <a class="nav-link" href="${data.html_url}">Github</a>
           <a class="nav-link" href="${data.blog}">Blog</a>
         </div>
+      </div>
       </div>
       <br>
       <br>
