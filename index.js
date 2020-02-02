@@ -94,24 +94,25 @@ function html(data, starLength, color) {
            padding-left: 100px;
            padding-right: 100px;
            }
-  
+
            .row {
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: space-between;
-             margin-top: 20px;
-             margin-bottom: 20px;
-           }
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
   
            img {
             border-radius: 50%;
+            border-style: solid;
+            border-color: black;
            }
           
            .img-parent {
              display: flex;
              justify-content: center;
-             margin-top: 30px;
-             border: 3px black;
+             margin-top: 20px; 
            }
            
            .col {
