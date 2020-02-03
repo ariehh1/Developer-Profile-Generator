@@ -77,16 +77,19 @@ function html(data, starLength, color) {
            background-color: ${color};
            color: white;
            }
+
            .nav-link {
            display: inline-block;
            margin: 5px 10px;
            }
+
            .container {
            position: relative;
            padding: 50px;
            padding-left: 100px;
            padding-right: 100px;
            }
+
            .row {
             display: flex;
             flex-wrap: wrap;
@@ -156,6 +159,7 @@ function html(data, starLength, color) {
       <br>
       <br>
       <br>
+      <div class="jumbotron jumbotron-fluid">
       <div class="row">
         <div class='col card'>
           <h2>Public Repositories</h1>
@@ -175,6 +179,7 @@ function html(data, starLength, color) {
           <h2>Following</h2>
           ${data.following}
         </div>
+      </div>
       </div>
     </body>
     </html>
