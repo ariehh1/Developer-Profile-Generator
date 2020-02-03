@@ -53,23 +53,18 @@ function html(data, starLength, color) {
            h1 {
            font-size: 3em;
            }
-
            h2 {
            font-size: 2.5em;
            }
-
            h3 {
            font-size: 2em;
            }
-
            h4 {
            font-size: 1.5em;
            }
-
            h5 {
            font-size: 1.3em;
            }
-
            h6 {
            font-size: 1.2em;
            }
@@ -82,19 +77,16 @@ function html(data, starLength, color) {
            background-color: ${color};
            color: white;
            }
-
            .nav-link {
            display: inline-block;
            margin: 5px 10px;
            }
-
            .container {
            position: relative;
            padding: 50px;
            padding-left: 100px;
            padding-right: 100px;
            }
-
            .row {
             display: flex;
             flex-wrap: wrap;
@@ -112,12 +104,16 @@ function html(data, starLength, color) {
            .img-parent {
              display: flex;
              justify-content: center;
-             margin-top: 20px; 
+             background-color: #DCDCDC;
            }
            
            .col {
            flex: 1;
            text-align: center;
+           }
+
+           .jumbotron {
+             background-color: #DCDCDC;
            }
   
            a, a:hover {
@@ -166,7 +162,7 @@ function html(data, starLength, color) {
           ${data.public_repos}
         </div>
         <div class="col card">
-          <h2>Followers</h1>
+          <h2>Followers</h2>
           ${data.followers}
         </div>
       </div>
@@ -180,7 +176,6 @@ function html(data, starLength, color) {
           ${data.following}
         </div>
       </div>
-
     </body>
     </html>
     `;
