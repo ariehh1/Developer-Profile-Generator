@@ -77,19 +77,16 @@ function html(data, starLength, color) {
            background-color: ${color};
            color: white;
            }
-
            .nav-link {
            display: inline-block;
            margin: 5px 10px;
            }
-
            .container {
            position: relative;
            padding: 50px;
            padding-left: 100px;
            padding-right: 100px;
            }
-
            .row {
             display: flex;
             flex-wrap: wrap;
@@ -114,7 +111,6 @@ function html(data, starLength, color) {
            flex: 1;
            text-align: center;
            }
-
            .jumbotron {
              background-color: #DCDCDC;
            }
